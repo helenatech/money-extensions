@@ -28,8 +28,5 @@ jobs:
       run: dotnet pack --configuration Release
     
     - name: Publish
-      run: |
-        PACKAGE=$(find . -name "*.nupkg")
-        echo "Found package: $PACKAGE"
-        dotnet nuget push "$PACKAGE" --api-key ${{ secrets.NUGET_TOKEN }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push "MoneyExtension/bin/Release/*.nupkg" -k ${{ secrets.TOKEN_NUGET}} -s https://api.nuget.org/v3/index.json
         
