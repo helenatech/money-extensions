@@ -1,10 +1,14 @@
 ﻿namespace MoneyExtension.Tests;
 
 [TestClass]
-public sealed class Test1
+public sealed class MoneyExtensionTests
 {
     [TestMethod]
-    public void TestMethod1()
+    public void ShouldConvertDecimalToInt()
     {
+        decimal valor = 279.98M;
+        var cents = valor.ToCents();
+
+        Assert.AreEqual(27998, cents);
     }
 }
